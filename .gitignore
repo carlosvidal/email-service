@@ -1,0 +1,4 @@
+node_modules
+.env
+domains.json
+.DS_Store

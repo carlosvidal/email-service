@@ -1,0 +1,20 @@
+{
+  "app1.com": {
+    "host": "smtp.migadu.com",
+    "port": 587,
+    "secure": false,
+    "auth": {
+      "user": "no-reply@app1.com",
+      "pass": "TU_PASSWORD"
+    }
+  },
+  "app2.com": {
+    "host": "smtp.migadu.com",
+    "port": 587,
+    "secure": false,
+    "auth": {
+      "user": "no-reply@app2.com",
+      "pass": "TU_PASSWORD"
+    }
+  }
+}

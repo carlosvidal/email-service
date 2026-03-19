@@ -1,0 +1,20 @@
+{
+  "name": "mini-email-service",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Mini email service (tipo Resend) con Node + SMTP",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "server": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "nodemailer": "^6.9.14",
+    "mjml": "^4.15.3"
+  },
+  "optionalDependencies": {
+    "fastify": "^4.26.2"
+  }
+}
