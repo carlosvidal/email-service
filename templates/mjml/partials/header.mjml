@@ -1,0 +1,5 @@
+<mj-section padding="24px">
+  <mj-column>
+    <mj-text font-size="18px" font-weight="600">Mini Email Service</mj-text>
+  </mj-column>
+</mj-section>

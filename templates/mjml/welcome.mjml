@@ -1,0 +1,12 @@
+<mjml>
+  <mj-body background-color="#f5f5f5">
+    <mj-include path="./partials/header.mjml" />
+    <mj-section padding="24px">
+      <mj-column>
+        <mj-text font-size="20px" font-weight="600">Hola {{name}}</mj-text>
+        <mj-text>Bienvenido a la app</mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-include path="./partials/footer.mjml" />
+  </mj-body>
+</mjml>

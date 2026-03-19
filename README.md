@@ -54,7 +54,14 @@ No necesitas `source .env` porque usamos `dotenv` automaticamente.
 ## Uso directo (en este repo)
 
 ```bash
+npm run build:templates
 npm run start
+```
+
+## Watch de templates
+
+```bash
+npm run watch:templates
 ```
 
 ## Usarlo desde otro proyecto
@@ -98,11 +105,13 @@ Luego en tu codigo:
 ```js
 import { sendEmail } from "mini-email-service/mailer.js";
 import { welcomeTemplate } from "mini-email-service/templates/welcome.js";
+import { purchaseThankYouTemplate } from "mini-email-service/templates/purchaseThankYou.js";
 ```
 
 ## API HTTP (opcional)
 
 ```bash
+npm run build:templates
 npm run server
 ```
 
@@ -110,6 +119,7 @@ Ejemplo de request:
 
 ```bash
 curl -X POST http://localhost:3000/send \
+  -H "X-API-Key: dev-key-123" \
   -H "Content-Type: application/json" \
   -d '{
     "domain": "tu-dominio.com",
@@ -120,6 +130,15 @@ curl -X POST http://localhost:3000/send \
   }'
 ```
 
+Endpoints disponibles:
+- `POST /send` (raw)
+- `POST /send/welcome`
+- `POST /send/reset-password`
+- `POST /send/purchase-thank-you`
+- `GET /health`
+
+Especificacion OpenAPI: `/Users/carlosvidal/www/mini-resend/email-service/openapi.yaml`
+
 ## Estructura
 
 ```
@@ -128,8 +147,17 @@ email-service/
 ├── mailer.js
 ├── config.js
 ├── server.js
+├── scripts/
+│   └── build-templates.js
 └── templates/
-    ├── renderMjml.js
+    ├── renderTemplate.js
+    ├── compiled/
+    ├── mjml/
+    │   ├── partials/
+    │   │   ├── footer.mjml
+    │   │   └── header.mjml
+    │   ├── resetPassword.mjml
+    │   └── welcome.mjml
     ├── welcome.js
     └── resetPassword.js
 ```
@@ -137,4 +165,8 @@ email-service/
 ## Notas
 
 - El dominio usado en `sendEmail` debe existir en `domains.json` o en el `.env`.
-- Los templates usan MJML y se compilan a HTML en runtime.
+- Los templates usan MJML y se precompilan con `npm run build:templates`.
+- Las variables usan Handlebars (ej: `{{name}}`, `{{resetUrl}}`).
+- Template de compra: `purchaseThankYouTemplate({ name, productName, licenseKey })`.
+- Si defines `EMAIL_API_KEYS`, la API exige `X-API-Key` (una de las keys).
+- Rate limit via `RATE_LIMIT_MAX` y `RATE_LIMIT_WINDOW`.

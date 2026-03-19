@@ -1,0 +1,5 @@
+<mj-section padding="24px">
+  <mj-column>
+    <mj-text font-size="12px" color="#6b7280">Si no solicitaste este email, puedes ignorarlo.</mj-text>
+  </mj-column>
+</mj-section>

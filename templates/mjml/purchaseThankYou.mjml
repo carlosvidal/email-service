@@ -1,0 +1,14 @@
+<mjml>
+  <mj-body background-color="#f5f5f5">
+    <mj-include path="./partials/header.mjml" />
+    <mj-section padding="24px">
+      <mj-column>
+        <mj-text font-size="20px" font-weight="600">Gracias por tu compra{{#if name}}, {{name}}{{/if}}</mj-text>
+        <mj-text>Tu licencia para {{productName}} ya esta lista.</mj-text>
+        <mj-text font-size="14px" color="#6b7280">Numero de serie</mj-text>
+        <mj-text font-size="18px" font-weight="600">{{licenseKey}}</mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-include path="./partials/footer.mjml" />
+  </mj-body>
+</mjml>

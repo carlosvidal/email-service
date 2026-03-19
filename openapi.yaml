@@ -1,0 +1,140 @@
+openapi: 3.0.3
+info:
+  title: Mini Email Service API
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+  schemas:
+    SendPayload:
+      type: object
+      required:
+        - domain
+        - to
+        - subject
+      properties:
+        domain:
+          type: string
+        to:
+          type: string
+        subject:
+          type: string
+        html:
+          type: string
+        text:
+          type: string
+    WelcomePayload:
+      type: object
+      required:
+        - domain
+        - to
+        - name
+      properties:
+        domain:
+          type: string
+        to:
+          type: string
+        name:
+          type: string
+    ResetPasswordPayload:
+      type: object
+      required:
+        - domain
+        - to
+        - name
+        - resetUrl
+      properties:
+        domain:
+          type: string
+        to:
+          type: string
+        name:
+          type: string
+        resetUrl:
+          type: string
+    PurchaseThankYouPayload:
+      type: object
+      required:
+        - domain
+        - to
+        - productName
+        - licenseKey
+      properties:
+        domain:
+          type: string
+        to:
+          type: string
+        name:
+          type: string
+        productName:
+          type: string
+        licenseKey:
+          type: string
+paths:
+  /health:
+    get:
+      summary: Health check
+      responses:
+        "200":
+          description: OK
+  /send:
+    post:
+      summary: Send email (raw)
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SendPayload"
+      responses:
+        "200":
+          description: OK
+  /send/welcome:
+    post:
+      summary: Send welcome email
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WelcomePayload"
+      responses:
+        "200":
+          description: OK
+  /send/reset-password:
+    post:
+      summary: Send reset password email
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ResetPasswordPayload"
+      responses:
+        "200":
+          description: OK
+  /send/purchase-thank-you:
+    post:
+      summary: Send purchase thank you email
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PurchaseThankYouPayload"
+      responses:
+        "200":
+          description: OK

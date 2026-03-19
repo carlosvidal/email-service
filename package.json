@@ -7,12 +7,19 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "server": "node server.js"
+    "server": "node server.js",
+    "build:templates": "node scripts/build-templates.js",
+    "watch:templates": "chokidar \"templates/mjml/**/*.mjml\" -c \"npm run build:templates\""
   },
   "dependencies": {
+    "@fastify/rate-limit": "^9.1.0",
     "dotenv": "^16.4.5",
+    "handlebars": "^4.7.8",
     "nodemailer": "^6.9.14",
     "mjml": "^4.15.3"
+  },
+  "devDependencies": {
+    "chokidar-cli": "^3.0.0"
   },
   "optionalDependencies": {
     "fastify": "^4.26.2"
