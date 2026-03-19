@@ -9,7 +9,8 @@
     "start": "node index.js",
     "server": "node server.js",
     "build:templates": "node scripts/build-templates.js",
-    "watch:templates": "chokidar \"templates/mjml/**/*.mjml\" -c \"npm run build:templates\""
+    "watch:templates": "chokidar \"templates/mjml/**/*.mjml\" -c \"npm run build:templates\"",
+    "test": "node scripts/build-templates.js && node --test 'tests/*.test.js'"
   },
   "dependencies": {
     "@fastify/rate-limit": "^9.1.0",

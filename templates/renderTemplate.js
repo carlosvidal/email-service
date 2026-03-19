@@ -4,7 +4,7 @@ import Handlebars from "handlebars";
 const compiledDirUrl = new URL("./compiled/", import.meta.url);
 
 export function renderTemplate(name, vars = {}) {
-  const fileUrl = new URL(`./compiled/${name}.html`, compiledDirUrl);
+  const fileUrl = new URL(`${name}.html`, compiledDirUrl);
   if (!fs.existsSync(fileUrl)) {
     throw new Error(
       `Template compilado no encontrado: ${name}. Ejecuta \"npm run build:templates\".`
