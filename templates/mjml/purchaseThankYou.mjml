@@ -7,6 +7,7 @@
         <mj-text>Tu licencia para {{productName}} ya esta lista.</mj-text>
         <mj-text font-size="14px" color="#6b7280">Numero de serie</mj-text>
         <mj-text font-size="18px" font-weight="600">{{licenseKey}}</mj-text>
+        <mj-text padding-top="16px" font-size="14px" color="#6b7280">Para cualquier consulta escríbenos a <a href="mailto:help@cdr2svg.com">help@cdr2svg.com</a></mj-text>
       </mj-column>
     </mj-section>
     <mj-include path="./partials/footer.mjml" />
