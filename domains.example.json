@@ -9,12 +9,10 @@
     }
   },
   "app2.com": {
-    "host": "smtp.migadu.com",
-    "port": 587,
-    "secure": false,
-    "auth": {
-      "user": "no-reply@app2.com",
-      "pass": "TU_PASSWORD"
-    }
+    "transport": "ahasend",
+    "ahasend_account_id": "TU_ACCOUNT_ID",
+    "ahasend_api_key": "aha-sk-TU_API_KEY",
+    "from_email": "no-reply@app2.com",
+    "from_name": "App2"
   }
 }
